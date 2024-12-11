@@ -1,23 +1,17 @@
----
-tags:
-- basics
----
+# Python Variables
+
+> Variables in Python are used to store data values. They are dynamically typed and flexible, making Python both powerful and easy to use.
 
 <br>
 
-## Introduction
+### Key Characteristics
 
-> Variables and constants are fundamental concepts in Python programming. Variables store data values that can change during program execution, while constants are values meant to remain unchanged.
-
-<br>
-
----
-
-<br>
-
-## Variables
-
-> A variable is a name that refers to a memory location where data is stored. In Python, variables are dynamically typed, meaning you don’t need to specify the type explicitly (although you can use type hints to improve code readability and prevent type-related errors).
+> - No explicit declaration required
+> - Dynamically typed (type inferred at runtime)
+> - Can hold any data type
+> - Naming rules and best practices apply
+> - Supports type hints for clarity and static analysis
+> - Constants and multiple assignments supported
 
 <br>
 
@@ -25,90 +19,171 @@ tags:
 
 <br>
 
-### Declaring Variables
+## Declaring Variables
 
-> In Python, variable declaration is implicit. You assign a type using `: <type>`, and a value using the assignment operator `=`.
+> Variables are created when you assign a value to them.
 
 ```python
-x = 10       # Integer (dynamic)
-y: int = 10  # Integer (type hinted)
+# Basic variable assignment
+x = 10
+name = "Python"
+flag = True
 
-print(x, y)
+print(x)
+print(name)
+print(flag)
+```
+
+```sh
+10
+Python
+True
 ```
 
 <br>
 
-### Rules for Naming Variables
+---
 
+<br>
+
+## Naming Variables
+
+> Variable names must follow certain rules:
 > - Must begin with a letter (a–z, A–Z) or an underscore (_).
 > - Can contain letters, digits (0–9), and underscores.
-> - Case-sensitive (e.g., `Name` and `name` are different variables).
-> - Cannot use reserved keywords (e.g., `def`, `class`, `if`).
+> - Cannot start with a number or be separated by spacing.
+> - Case-sensitive (`myvar` and `MyVar` are different).
+> - Cannot use reserved keywords (e.g., `def`, `class`, `if`).
 
 <br>
 
-### Common Variable Types
+### Examples of Valid and Invalid Names
 
-> Integers (`int`): Whole numbers.
-
-```python
-count = 1
-```
-
-> Floats (`float`): Decimal numbers.
-
-```python
-price = 4.99
-```
-
-> Strings (`str`): Sequence of characters.
-
-```python
-message = "Hello, World!"
-```
-
-> Booleans (`bool`): True or False.
-
-```python
-is_python = True
-```
-
-> `None`: Represents the absence of a value.
-
-```python
-data = None
-```
+| **Valid Names**   | **Invalid Names** |
+|-------------------|-------------------|
+| `snake_case`          | `2variable`       |
+| `SCREAMING_SNAKE_CASE` | `var name` (no space) |
+| `camelCase`       | `class` (keyword) |
+| `PascalCase`      | `var@123`         |
+| `_private`        | `var-name`        |
 
 <br>
 
-### Dynamic Typing
+---
+
+<br>
+
+## Dynamic Typing
+
+> Python determines the type of a variable at runtime based on the value assigned.
+
+```python
+x = 42         # Integer
+y = 3.14       # Float
+name = "John"  # String
+flag = True    # Boolean
+
+print(type(x))
+print(type(y))
+print(type(name))
+print(type(flag))
+```
+
+```sh
+<class 'int'>
+<class 'float'>
+<class 'str'>
+<class 'bool'>
+```
+
+<br>
 
 > Variables in Python can change types during execution.
 
 ```python
-x = 10  # Integer
-print(x)
+value = 10  # int
+print(f"{value} is of type {type(value)}")
 
-x = "Now a string"  # String
-print(x)
+value = "10"  # str
+print(f"{value} is now of type {type(value)}")
 ```
 
 <br>
 
-### Multiple Assignment
-
-> Python supports assigning values to multiple variables in a single line.
-
-```python
-a, b, c = 1, 2, 3
-```
+---
 
 <br>
 
-> You can also assign the same value to multiple variables.
+## Type Hints
+
+> Type hints provide optional type information to improve code clarity and enable static type checking.
+> - Syntax: `<name>: <type> = <value>`
 
 ```python
-x = y = z = 0
+# Type hint for variable
+greeting: str = "Hello!"
+DAYS_IN_WEEK: int = 7 
+
+print(greeting)
+print(DAYS_IN_WEEK)
+```
+
+```sh
+Hello!
+7
+```
+
+
+### Possible Type Hint Values
+
+> Python supports a wide range of type hints, including:
+
+|**Type**|**Description**|
+|---|---|
+|`int`|Integer values|
+|`float`|Floating-point numbers|
+|`str`|String values|
+|`bool`|Boolean values (`True`, `False`)|
+|`list`|List of items|
+|`tuple`|Tuple of items|
+|`dict`|Dictionary of key-value pairs|
+|`set`|Set of unique items|
+|`Any`|Any type (from `typing` module)|
+|`Union`|Multiple possible types (e.g., `Union[int, str]`)|
+|`Optional`|Allows `None` as a valid value (e.g., `Optional[str]`)|
+|`Callable`|Represents functions or callable objects|
+|`TypeVar`|Represents generic types|
+|`Literal`|Specific literal values (e.g., `Literal["yes", "no"]`)|
+
+<br>
+
+### Benefits of Type Hints
+> - Helps catch type-related bugs early.
+> - Improves code readability and documentation.
+> - Supported by tools like `mypy` for static analysis.
+
+<br>
+
+---
+
+<br>
+
+## Multiple Assignments
+
+> Python allows assigning values to multiple variables in a single line.
+
+```python
+x, y, z = 1, 2, 3
+print(x, y, z)
+
+# Assign the same value to multiple variables
+a = b = c = 0
+print(a, b, c)
+```
+
+```sh
+1 2 3
+0 0 0
 ```
 
 <br>
@@ -119,18 +194,97 @@ x = y = z = 0
 
 ## Constants
 
-> A constant is a value that is intended to remain unchanged during the execution of a program. Python does not have built-in constant support but follows naming conventions to indicate constants.
+> Python does not have built-in constant types, but naming conventions are used to indicate constants.
 
-<br>
+```python
+PI = 3.14159   # Use uppercase names for constants
+URL = "https://example.com"
 
-### Declaring Constants
+print(PI)
+print(URL)
+```
 
-> By convention, constants are written in uppercase with underscores separating words.
+```sh
+3.14159
+https://example.com
+```
+
+### Best Practice
+> Use constants for values that should not change during program execution.
+> 
 > While Python does not enforce immutability for constants, developers should treat variables with uppercase names as constants.
 
+<br>
+
+---
+
+<br>
+
+## Best Practices
+
+<br>
+
+### Follow PEP 8 Guidelines
+> - Use descriptive names (`total_sum` instead of `ts`).
+> - Avoid single-character names, except for temporary variables (`i`, `j`).
+> - Use underscores for readability (`user_name`).
+> - Keep constants in uppercase (`MAX_LIMIT`).
+
+<br>
+
+### Initialize Before Use
+> Ensure variables are initialized before they are accessed.
+
 ```python
-PI = 3.14159
-DAYS_IN_WEEK = 7
+count = 0
+print(count)  # Safe
+```
+
+<br>
+
+### Use Type Hints
+> Add type hints to improve clarity and avoid errors in large projects.
+
+<br>
+
+---
+
+<br>
+
+## Variable Scope
+
+> The scope of a variable determines where it can be accessed.
+
+<br>
+
+### Local Scope
+> Variables declared inside a function are local to that function.
+
+```python
+def my_function():
+    local_var = 10
+    print(local_var)
+
+my_function()
+# print(local_var)  # Error: local_var is not accessible here
+```
+
+<br>
+
+### Global Scope
+> Variables declared outside any function are global.
+
+```python
+global_var = 100
+
+def show_global():
+    print(global_var)
+
+show_global()
+```
+
+```sh
+100
 ```
 
 <br>
@@ -139,28 +293,30 @@ DAYS_IN_WEEK = 7
 
 <br>
 
-## Best Practices for Variables and Constants
+## Mutable and Immutable Variables
 
-1. Use descriptive names to improve readability.
+> Variables in Python can be mutable or immutable based on their type.
+
+| **Immutable Types**  | **Mutable Types**      |
+|----------------------|------------------------|
+| `int`, `float`, `str`| `list`, `dict`, `set`  |
+| `tuple`, `frozenset` | `bytearray`            |
 
 ```python
-user_age = 25  # Clear and descriptive
+# Immutable example
+x = 10
+x = x + 1  # Creates a new object
+
+# Mutable example
+lst = [1, 2, 3]
+lst.append(4)  # Modifies the same object
+
+print(x)
+print(lst)
 ```
 
-2. Follow PEP 8 guidelines:
-    - Use snake_case for variable names.
-    - Use UPPERCASE for constants.
-3. Avoid using ambiguous names like `x`, `y`, or `data` unless the context is clear.
-4. Initialize variables before use to prevent runtime errors.
+```sh
+11
+[1, 2, 3, 4]
+```
 
-<br>
-
----
-
-<br>
-
-## Key Points
-
-> - Variables are dynamically typed and can change during runtime.
-> - Constants are not enforced in Python but are indicated using uppercase names.
-> - Use descriptive and meaningful names for variables and constants to improve code clarity.
