@@ -1,3 +1,10 @@
+---
+tags:
+- error-handling
+---
+
+<br>
+
 # Python Exceptions (Error Handling)
 
 > Exceptions in Python provide a way to handle errors and exceptional conditions gracefully during program execution.

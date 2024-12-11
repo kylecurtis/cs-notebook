@@ -1,3 +1,10 @@
+---
+tags:
+- toc
+---
+
+<br>
+
 ## Introduction to Python
 
 - 1.1 What is Python?

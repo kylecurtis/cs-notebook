@@ -1,3 +1,10 @@
+---
+tags:
+- basics
+---
+
+<br>
+
 ## Introduction
 
 > Variables and constants are fundamental concepts in Python programming. Variables store data values that can change during program execution, while constants are values meant to remain unchanged.

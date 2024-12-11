@@ -1,3 +1,10 @@
+---
+tags:
+- oop
+---
+
+<br>
+
 # Python Classes
 
 > Classes are the foundation of Object-Oriented Programming (OOP) in Python, providing a way to bundle data and functionality together. They allow you to create custom objects that encapsulate data and behavior.

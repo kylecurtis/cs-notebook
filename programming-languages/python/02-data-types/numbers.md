@@ -1,3 +1,10 @@
+---
+tags:
+- data-types
+---
+
+<br>
+
 # Python Numeric Types
 
 > Python provides several built-in numeric types to handle different kinds of numbers and mathematical operations. Each type has its specific use cases and characteristics.

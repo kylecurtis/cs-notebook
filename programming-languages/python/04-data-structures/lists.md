@@ -1,3 +1,10 @@
+---
+tags:
+- data-structures
+---
+
+<br>
+
 # Python Lists
 
 > Python lists are ordered, mutable sequences that can hold items of different types. They provide a flexible and powerful way to store collections of data.

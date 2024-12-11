@@ -1,3 +1,10 @@
+---
+tags:
+- data-structures
+---
+
+<br>
+
 # Python Tuples
 
 > Python tuples are immutable sequences, meaning once created, their elements cannot be changed. They serve as a fundamental data structure for representing fixed collections of items.

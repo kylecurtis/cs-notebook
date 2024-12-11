@@ -1,3 +1,10 @@
+---
+tags:
+- basics
+---
+
+<br>
+
 > Python provides robust support for file handling, enabling the creation, reading, updating, and deletion of files. The built-in `open` function, along with modules like `os`, `csv`, and `json`, facilitates working with various file types including text, CSV, and JSON.
 
 <br>

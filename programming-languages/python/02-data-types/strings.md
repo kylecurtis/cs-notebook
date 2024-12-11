@@ -1,3 +1,10 @@
+---
+tags:
+- data-types
+---
+
+<br>
+
 # Python Strings
 
 > Strings in Python are immutable sequences of characters used for storing and manipulating text data. They are one of Python's core data types.

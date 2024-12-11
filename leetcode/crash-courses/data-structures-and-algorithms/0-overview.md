@@ -1,3 +1,11 @@
+---
+tags:
+- leetcode
+- dsa
+---
+
+<br>
+
 ## Introduction
 
 This is a data structures and algorithms (DSA) course with a strong focus on passing coding interviews for software engineering jobs.

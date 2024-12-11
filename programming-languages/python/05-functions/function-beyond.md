@@ -1,3 +1,10 @@
+---
+tags:
+- functions
+---
+
+<br>
+
 # Advanced Functions
 
 > Python provides several advanced function features that enable functional programming paradigms, code optimization, and enhanced type safety.

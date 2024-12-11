@@ -1,3 +1,10 @@
+---
+tags:
+- control-flow
+---
+
+<br>
+
 # Python Loops
 
 > Python provides several ways to perform iteration and looping, offering both simplicity for basic operations and flexibility for complex iteration patterns.

@@ -1,3 +1,10 @@
+---
+tags:
+- data-structures
+---
+
+<br>
+
 # Python Dictionaries
 
 > Python dictionaries are hash tables that store key-value pairs. They provide fast access and modification of values using unique keys.

@@ -1,3 +1,10 @@
+---
+tags:
+- control-flow
+---
+
+<br>
+
 > Operators in Python are symbols or keywords used to perform operations on variables and values. Python provides various types of operators to handle arithmetic, comparison, logical operations, and more.
 
 <br>

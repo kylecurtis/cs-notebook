@@ -1,3 +1,10 @@
+---
+tags:
+- toc
+---
+
+<br>
+
 ## 1. Python Fundamentals
 ### 1.1 Getting Started
 - Python History and Philosophy

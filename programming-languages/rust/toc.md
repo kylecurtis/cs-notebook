@@ -1,3 +1,10 @@
+---
+tags:
+- toc
+---
+
+<br>
+
 ## **1. Introduction to Rust**
 
 - **1.1. Overview of Rust**

@@ -1,3 +1,10 @@
+---
+tags:
+- data-types
+---
+
+<br>
+
 # Python Booleans
 
 > Booleans in Python are a core data type representing one of two values: `True` or `False`. They are often used in conditional statements and logical operations.
