@@ -1,3 +1,10 @@
+---
+tags:
+- basics
+---
+
+<br>
+
 # Python Variables
 
 > Variables in Python are used to store data values. They are dynamically typed and flexible, making Python both powerful and easy to use.
