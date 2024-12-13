@@ -37,17 +37,18 @@ tags:
 > Simple condition checking:
 
 ```python
-number = 5
+# Signal strength in light-minutes from Earth
+signal_strength = 5
 
-if number > 0:
-    print("Number is positive")
-
-print("This always executes")
+if signal_strength > 0:
+    print("Signal detected from deep space probe!")
+    
+print("Signal detection check complete.")
 ```
 
 ```sh
-Number is positive
-This always executes
+Signal detected from deep space probe!
+Signal detection check complete.
 ```
 
 <br>
@@ -57,16 +58,17 @@ This always executes
 > Two-way decision making:
 
 ```python
-number = -5
+# Negative means moving away from Earth, positive means moving towards Earth
+asteroid_trajectory = -5
 
-if number > 0:
-    print("Number is positive")
+if asteroid_trajectory > 0:
+    print("WARNING: Asteroid approaching Earth!")
 else:
-    print("Number is non-positive")
+    print("Safe: Asteroid is moving away from Earth")
 ```
 
 ```sh
-Number is non-positive
+Safe: Asteroid is moving away from Earth
 ```
 
 <br>
@@ -76,22 +78,23 @@ Number is non-positive
 > Multiple condition checking:
 
 ```python
-score = 85
+# Shield strength percentage
+shield_strength = 85
 
-if score >= 90:
-    print("Grade: A")
-elif score >= 80:
-    print("Grade: B")
-elif score >= 70:
-    print("Grade: C")
-elif score >= 60:
-    print("Grade: D")
+if shield_strength >= 90:
+    print("Shields OPTIMAL - All systems nominal")
+elif shield_strength >= 80:
+    print("Shields GOOD - Minor wear detected")
+elif shield_strength >= 70:
+    print("Shields FAIR - Repairs recommended")
+elif shield_strength >= 60:
+    print("Shields CRITICAL - Immediate repairs required")
 else:
-    print("Grade: F")
+    print("SHIELDS FAILING - Emergency protocols initiated!")
 ```
 
 ```sh
-Grade: B
+Shields GOOD - Minor wear detected
 ```
 
 <br>
@@ -101,22 +104,28 @@ Grade: B
 > Conditional statements within other conditional statements:
 
 ```python
-age = 25
-has_license = True
+fuel_level = 95  # Percentage of fuel tank filled
+systems_check = True  # All systems are functioning
+weather_clear = True  # Weather conditions are suitable
 
-if age >= 18:
-    print("Age requirement met")
-    if has_license:
-        print("Can drive")
+if fuel_level >= 90:
+    print("Fuel levels optimal for launch.")
+    if systems_check:
+        print("All systems are go.")
+        if weather_clear:
+            print("Weather conditions perfect - Launch authorized!")
+        else:
+            print("Launch delayed - Weather conditions unfavorable.")
     else:
-        print("Cannot drive - no license")
+        print("Launch aborted - System check failed!")
 else:
-    print("Cannot drive - too young")
+    print("Launch aborted - Insufficient fuel!")
 ```
 
 ```sh
-Age requirement met
-Can drive
+Fuel levels optimal for launch.
+All systems are go.
+Weather conditions perfect - Launch authorized!
 ```
 
 <br>
@@ -126,68 +135,23 @@ Can drive
 > Using logical operators (and, or, not):
 
 ```python
-age = 25
-income = 50000
-credit_score = 700
+age = 30  # Age in Earth years
+space_training = 2000  # Hours of zero-gravity training
+health_score = 85  # Physical adaptation score out of 100
 
-if age >= 21 and income >= 40000:
-    if credit_score >= 700:
-        print("Loan approved")
-    elif credit_score >= 600:
-        print("Loan needs review")
+if age >= 25 and space_training >= 1500:
+    if health_score >= 80:
+        print("Approved. Your adaptation profile is excellent!")
+    elif health_score >= 70:
+        print("Pending. Additional physical conditioning required!")
     else:
-        print("Loan denied - low credit score")
+        print("Denied. Health score below minimum requirements.")
 else:
-    print("Loan denied - age or income requirement not met")
+    print("Denied. Must be 25+ years old with 1500+ hours of training.")
 ```
 
 ```sh
-Loan approved
-```
-
-<br>
-
-### Truthy and Falsy Values
-
-> Python considers certain values as False in boolean context:
-
-```python
-# Demonstrate falsy values
-falsy_examples = [None, False, 0, 0.0, "", [], (), {}]
-
-for value in falsy_examples:
-    if value:
-        print(f"{value} is True")
-    else:
-        print(f"{value} is False")
-
-# Demonstrate truthy values
-truthy_examples = [True, 42, -1, 3.14, "hello", [1, 2], (1,), {"a": 1}]
-
-for value in truthy_examples:
-    if value:
-        print(f"{value} is True")
-    else:
-        print(f"{value} is False")
-```
-
-```sh
-None is False
-False is False
-0 is False
-0.0 is False
- is False
-[] is False
-() is False
-{} is False
-True is True
-42 is True
--1 is True
-3.14 is True
-hello is True
-[1, 2] is True
-(1,) is True
-{'a': 1} is True
+Approved. Your adaptation profile is excellent!
 ```
 
 <br>
@@ -207,31 +171,31 @@ hello is True
 > Simple value matching:
 
 ```python
-def check_status(status):
-    match status:
-        case "ok":
-            print("Everything is fine")
-        case "error":
-            print("Something went wrong")
+def classify_solar_event(signature):
+    match signature:
+        case "flare":
+            print("Solar flare detected - Monitoring X-ray flux levels")
+        case "cme":
+            print("Coronal Mass Ejection detected - Tracking particle density")
         case _:  # Default case
-            print("Unknown status")
+            print("Analyzing unusual solar activity patterns")
 
-# Test different values
-statuses = ["ok", "error", "pending"]
-for status in statuses:
-    print(f"\nChecking status: {status}")
-    check_status(status)
+# Test different solar events
+events = ["flare", "cme", "prominence"]
+for event in events:
+    print(f"\nProcessing solar observation: {event}")
+    classify_solar_event(event)
 ```
 
 ```sh
-Checking status: ok
-Everything is fine
+Processing solar observation: flare
+Solar flare detected - Monitoring X-ray flux levels
 
-Checking status: error
-Something went wrong
+Processing solar observation: cme
+Coronal Mass Ejection detected - Tracking particle density
 
-Checking status: pending
-Unknown status
+Processing solar observation: prominence
+Analyzing unusual solar activity patterns
 ```
 
 <br>
@@ -241,51 +205,51 @@ Unknown status
 > Matching against different types of literal values:
 
 ```python
-def describe_value(value):
-    match value:
+def classify_seismic_activity(magnitude):
+    match magnitude:
         case 0:
-            print("Zero")
+            print("No seismic activity detected")
         case 1 | 2 | 3:
-            print("Small number")
-        case True:
-            print("Boolean True")
-        case False:
-            print("Boolean False")
+            print("Minor seismic activity - typical background level")
+        case 5:
+            print("Moderate earthquake detected")
+        case 7:
+            print("Major earthquake - initiating emergency protocols")
         case None:
-            print("None value")
+            print("Seismograph malfunction")
         case "":
-            print("Empty string")
+            print("No seismograph reading available")
         case _:
-            print(f"Something else: {value}")
+            print(f"Earthquake magnitude: {magnitude} - assessing impact")
 
-# Test with different values
-values = [0, 2, True, False, None, "", "hello"]
-for val in values:
-    print(f"\nValue: {val}")
-    describe_value(val)
+# Test with different magnitudes
+magnitudes = [0, 2, 5, 7, None, "", 4.5]
+for mag in magnitudes:
+    print(f"\nProcessing seismic reading: {mag}")
+    classify_seismic_activity(mag)
 ```
 
 ```sh
-Value: 0
-Zero
+Processing seismic reading: 0
+No seismic activity detected
 
-Value: 2
-Small number
+Processing seismic reading: 2
+Minor seismic activity - typical background level
 
-Value: True
-Boolean True
+Processing seismic reading: 5
+Moderate earthquake detected
 
-Value: False
-Boolean False
+Processing seismic reading: 7
+Major earthquake - initiating emergency protocols
 
-Value: None
-None value
+Processing seismic reading: None
+Seismograph malfunction
 
-Value: 
-Empty string
+Processing seismic reading: 
+No seismograph reading available
 
-Value: hello
-Something else: hello
+Processing seismic reading: 4.5
+Earthquake magnitude: 4.5 - assessing impact
 ```
 
 <br>
@@ -295,98 +259,48 @@ Something else: hello
 > Matching sequences with various patterns:
 
 ```python
-def analyze_point(point):
-    match point:
+def analyze_satellite_position(coords):
+    match coords:
         case (0, 0):
-            print("At origin")
-        case (0, y):
-            print(f"On y-axis at y={y}")
-        case (x, 0):
-            print(f"On x-axis at x={x}")
-        case (x, y):
-            print(f"At point ({x}, {y})")
+            print("Satellite at geostationary position above equator (Null Island)")
+        case (0, lat):
+            print(f"Satellite positioned over prime meridian at {lat}° latitude")
+        case (lon, 0):
+            print(f"Satellite positioned over equator at {lon}° longitude")
+        case (lon, lat):
+            print(f"Satellite at position: {lon}°E/W, {lat}°N/S")
         case _:
-            print("Not a point")
+            print("Invalid coordinate format")
 
-# Test with different points
-points = [(0, 0), (0, 5), (5, 0), (3, 4), [1, 2]]
-for p in points:
-    print(f"\nAnalyzing: {p}")
-    analyze_point(p)
-```
-
-```sh
-Analyzing: (0, 0)
-At origin
-
-Analyzing: (0, 5)
-On y-axis at y=5
-
-Analyzing: (5, 0)
-On x-axis at x=5
-
-Analyzing: (3, 4)
-At point (3, 4)
-
-Analyzing: [1, 2]
-At point (1, 2)
-```
-
-<br>
-
-### Class Patterns
-
-> Matching objects and their attributes:
-
-```python
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-class Circle:
-    def __init__(self, center, radius):
-        self.center = center
-        self.radius = radius
-
-def analyze_shape(shape):
-    match shape:
-        case Point(x=0, y=0):
-            print("Point at origin")
-        case Point(x=x, y=y):
-            print(f"Point at ({x}, {y})")
-        case Circle(center=Point(x=0, y=0), radius=r):
-            print(f"Circle centered at origin with radius {r}")
-        case Circle(center=center, radius=r):
-            print(f"Circle centered at ({center.x}, {center.y}) with radius {r}")
-        case _:
-            print("Unknown shape")
-
-# Test with different shapes
-shapes = [
-    Point(0, 0),
-    Point(3, 4),
-    Circle(Point(0, 0), 5),
-    Circle(Point(1, 1), 3)
+# Test with different satellite positions
+positions = [
+    (0, 0),      # Over Null Island
+    (0, 35),     # Over prime meridian at 35°N
+    (-75, 0),    # Over equator at 75°W
+    (105, -15),  # At 105°E, 15°S
+    [100, 45]    # Invalid format
 ]
 
-for shape in shapes:
-    print(f"\nAnalyzing shape: {shape.__class__.__name__}")
-    analyze_shape(shape)
+for pos in positions:
+    print(f"\nAnalyzing satellite position: {pos}")
+    analyze_satellite_position(pos)
 ```
 
 ```sh
-Analyzing shape: Point
-Point at origin
+Analyzing satellite position: (0, 0)
+Satellite at geostationary position above equator
 
-Analyzing shape: Point
-Point at (3, 4)
+Analyzing satellite position: (0, 35)
+Satellite positioned over prime meridian at 35° latitude
 
-Analyzing shape: Circle
-Circle centered at origin with radius 5
+Analyzing satellite position: (-75, 0)
+Satellite positioned over equator at -75° longitude
 
-Analyzing shape: Circle
-Circle centered at (1, 1) with radius 3
+Analyzing satellite position: (105, -15)
+Satellite at position: 105°E/W, -15°N/S
+
+Analyzing satellite position: [100, 45]
+Satellite at position: 100°E/W, 45°N/S
 ```
 
 <br>
@@ -396,41 +310,41 @@ Circle centered at (1, 1) with radius 3
 > Adding conditions to pattern matches:
 
 ```python
-def analyze_number(value):
+def analyze_temperature(value):
     match value:
-        case int(x) if x < 0:
-            print(f"Negative integer: {x}")
-        case int(x) if x > 0:
-            print(f"Positive integer: {x}")
-        case float(x) if x.is_integer():
-            print(f"Float with integer value: {x}")
-        case float(x):
-            print(f"Float value: {x}")
+        case int(temp) if temp < -273:
+            print(f"Error: Temperature {temp}°C below absolute zero")
+        case int(temp) if temp < 0:
+            print(f"Sub-zero temperature: {temp}°C")
+        case float(temp) if -273.15 <= temp <= -273.14:
+            print(f"Temperature near absolute zero: {temp}°C")
+        case float(temp) if temp > 5500:
+            print(f"Solar-core temperature range: {temp}°C")
         case _:
-            print(f"Other type: {value}")
+            print(f"Standard temperature reading: {value}°C")
 
-# Test with different values
-values = [-5, 10, 3.0, 3.14, "string"]
-for val in values:
-    print(f"\nAnalyzing: {val}")
-    analyze_number(val)
+# Test with different temperature values
+temperatures = [-300, -5, -273.15, 5778, 20.5]
+for temp in temperatures:
+    print(f"\nAnalyzing temperature: {temp}")
+    analyze_temperature(temp)
 ```
 
 ```sh
-Analyzing: -5
-Negative integer: -5
+Analyzing temperature: -300
+Error: Temperature -300°C below absolute zero
 
-Analyzing: 10
-Positive integer: 10
+Analyzing temperature: -5
+Sub-zero temperature: -5°C
 
-Analyzing: 3.0
-Float with integer value: 3.0
+Analyzing temperature: -273.15
+Temperature near absolute zero: -273.15°C
 
-Analyzing: 3.14
-Float value: 3.14
+Analyzing temperature: 5778
+Standard temperature reading: 5778°C
 
-Analyzing: string
-Other type: string
+Analyzing temperature: 20.5
+Standard temperature reading: 20.5°C
 ```
 
 <br>
@@ -447,188 +361,31 @@ Other type: string
 
 ### Basic Syntax
 
-> The syntax is: `value_if_true if condition else value_if_false`
+> The syntax is: `<value_if_true> if <condition> else <value_if_false>`
 
 ```python
 # Basic ternary operator
 x = 5
 result = "Positive" if x > 0 else "Non-positive"
 print(f"Number is: {result}")
+```
 
+```sh
+Number is: Positive
+```
+
+<br>
+
+```python
 # Compare with traditional if-else
 if x > 0:
     traditional_result = "Positive"
 else:
     traditional_result = "Non-positive"
+    
 print(f"Same result using if-else: {traditional_result}")
 ```
 
 ```sh
-Number is: Positive
 Same result using if-else: Positive
-```
-
-<br>
-
-### Common Use Cases
-
-> Practical applications of conditional expressions:
-
-```python
-# Setting default values
-name = ""
-display_name = name if name else "Anonymous"
-print(f"Display name: {display_name}")
-
-# Selecting format string
-age = 20
-status = "adult" if age >= 18 else "minor"
-print(f"Person is an: {status}")
-
-# List operations
-numbers = [1, 2, 3]
-message = "List has items" if numbers else "List is empty"
-print(message)
-```
-
-```sh
-Display name: Anonymous
-Person is an: adult
-List has items
-```
-
-<br>
-
-### Multiple Conditions
-
-> Handling multiple conditions in conditional expressions:
-
-```python
-# Multiple conditions using and/or
-x = 5
-y = 10
-
-# Check if x is between 0 and y
-result = "In range" if 0 <= x <= y else "Out of range"
-print(f"Value {x} is {result}")
-
-# Combining multiple conditions
-status = "Valid" if x > 0 and y > 0 else "Invalid"
-print(f"Status: {status}")
-
-# Chaining conditions
-grade = 85
-letter = "A" if grade >= 90 else "B" if grade >= 80 else "C" if grade >= 70 else "F"
-print(f"Grade: {letter}")
-```
-
-```sh
-Value 5 is In range
-Status: Valid
-Grade: B
-```
-
-<br>
-
-### Function Arguments
-
-> Using conditional expressions in function calls:
-
-```python
-def greet(name, formal=False):
-    greeting = "Dear" if formal else "Hello"
-    return f"{greeting}, {name}!"
-
-# Test with different formality
-print(greet("Alice", formal=True))
-print(greet("Bob", formal=False))
-
-# Conditional in function call
-def process_number(x):
-    return abs(x) if x < 0 else x * 2
-
-print(f"Process -5: {process_number(-5)}")
-print(f"Process 5: {process_number(5)}")
-```
-
-```sh
-Dear, Alice!
-Hello, Bob!
-Process -5: 5
-Process 5: 10
-```
-
-<br>
-
-### List Comprehension with Conditionals
-
-> Combining conditional expressions with list comprehensions:
-
-```python
-numbers = range(-5, 6)
-
-# Filter and transform
-results = [
-    "Positive" if n > 0 else "Zero" if n == 0 else "Negative"
-    for n in numbers
-]
-
-print("Number classifications:")
-for n, result in zip(numbers, results):
-    print(f"{n}: {result}")
-
-# Conditional transformation
-processed = [x * 2 if x > 0 else x for x in numbers]
-print(f"\nProcessed numbers: {processed}")
-```
-
-```sh
-Number classifications:
--5: Negative
--4: Negative
--3: Negative
--2: Negative
--1: Negative
-0: Zero
-1: Positive
-2: Positive
-3: Positive
-4: Positive
-5: Positive
-
-Processed numbers: [-5, -4, -3, -2, -1, 0, 2, 4, 6, 8, 10]
-```
-
-<br>
-
-### Best Practices
-
-> Guidelines for using conditional expressions effectively:
-
-```python
-# Good: Simple, clear conditions
-age = 20
-status = "adult" if age >= 18 else "minor"
-
-# Bad: Complex nested conditions (use regular if statements instead)
-value = 5
-result = (
-    "A" if value > 10 else 
-    "B" if value > 5 else 
-    "C" if value > 0 else 
-    "D"
-)
-
-# Good: Default values
-config = {}
-port = config.get('port') if config else 8080
-
-# Good: Simple transformations
-numbers = [1, -2, 3, -4]
-abs_values = [x if x >= 0 else -x for x in numbers]
-print(f"Absolute values: {abs_values}")
-```
-
-```sh
-Absolute values: [1, 2, 3, 4]
 ```
